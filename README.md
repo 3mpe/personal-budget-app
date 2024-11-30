@@ -1,36 +1,63 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Finansal Yönetim Uygulaması
 
-## Getting Started
+Bu proje, kullanıcıların gelir ve giderlerini takip edebilmesini, bütçe yönetimi yapabilmesini ve tasarruf önerileri alabilmesini sağlayan bir web uygulamasıdır. Aşağıda, uygulamanın nasıl çalıştığını ve hangi işlevleri sunduğunu açıklayan detaylı bilgi bulunmaktadır.
 
-First, run the development server:
+## 1. Uygulamanın Genel Özeti
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+Uygulama, kullanıcının gelir ve gider bilgilerini kaydetmesine, bir bütçe limiti belirlemesine ve harcamalarına göre tasarruf önerileri almasına olanak sağlar. Kullanıcılar, belirledikleri bütçe limitine ne kadar yaklaştıklarını, hangi kategorilerde fazla harcama yaptıklarını ve nasıl tasarruf edebileceklerini görürler.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Temel Özellikler
+- **Gelir ve Gider Takibi**: Kullanıcılar, gelir ve giderlerini ekler ve bu bilgileri kaydeder.
+- **Bütçe Limiti**: Kullanıcılar bir bütçe limiti belirler. Bu limit, kullanıcıya harcamalarını kontrol etmesi için bir rehber sağlar.
+- **Harcama Kategorileri**: Gelir ve giderler, belirli kategorilere ayrılabilir (örneğin, yiyecek, ulaşım, eğlence vb.).
+- **Tasarruf Önerileri**: Kullanıcılar, bütçelerini aşmamaları için sistem tarafından yönlendirilen tasarruf önerilerini alır.
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+---
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 2. Kullanıcı Arayüzü
 
-## Learn More
+Uygulamanın kullanıcı arayüzü, temel olarak şu öğeleri içerir:
 
-To learn more about Next.js, take a look at the following resources:
+### **Bütçe Limiti Ayarları**
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Kullanıcılar, uygulama başlangıcında veya ihtiyaç duyduklarında bütçe limitlerini belirleyebilirler.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### **Gelir ve Gider Formları**
 
-## Deploy on Vercel
+Gelir ve gider eklemek için kullanılan formlar, kullanıcıların ilgili bilgileri girmesine olanak tanır.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### **Harcama Kategorileri**
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Her harcama, bir kategoriye ait olmalıdır. Bu, kullanıcının harcamalarını daha kolay takip etmesini sağlar.
+
+### **Tasarruf Önerileri**
+
+Kullanıcıların harcamalarına dayalı olarak uygulama, onlara tasarruf önerileri sunar. Bu öneriler, harcama limitine yakınlaşma veya fazla harcama yapma durumlarına göre şekillenir.
+
+---
+
+## 3. Uygulama Fonksiyonları
+
+### **Gelir ve Gider Kaydetme**
+
+Gelir ve gider bilgileri, kullanıcının form aracılığıyla girdiği verilerle kaydedilir. Bu bilgiler, `localStorage` kullanılarak kalıcı hale getirilir.
+
+### **Bütçe Limiti Kontrolü**
+
+Bütçe limiti, kullanıcı tarafından belirlenen değeri geçtikçe, sistem tasarruf önerileri sunar. Eğer kullanıcı bütçesinin %80'ine veya daha fazlasına yaklaşırsa, uyarılar gösterilir.
+
+### **Tasarruf Önerileri**
+
+Uygulama, harcamalar üzerinden tasarruf önerileri sunar. Bu öneriler, harcama kategorileri ve bütçe limitine göre özelleştirilir.
+
+---
+
+## 4. Depolama ve Veri Yönetimi
+
+Veriler, kullanıcının cihazında `localStorage` kullanılarak depolanır. Bu sayede, uygulama her açıldığında veriler korunur ve kullanıcının girdiği bilgiler kaybolmaz.
+
+### **Veri Kaydetme ve Alma**
+
+Verilerin kaydedilmesi ve alınması için `Storage` yardımcı fonksiyonları kullanılır.
+
+---
